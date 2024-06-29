@@ -62,13 +62,13 @@ def llm(prompt):
     return response.choices[0].message.content
 
 # Function that simulates a long-running process (replace with your actual 'rag' function)
-def rag(q):
+def rag(answer):
     #st.write('Im here')
-    #search_results = elastic_search_query(answer)
+    search_results = elastic_search_query(answer)
     #st.write('Im here')
-    #prompt = build_prompt(answer, search_results)
+    prompt = build_prompt(answer, search_results)
     #st.write(prompt)
-    answer = llm(q)
+    answer = llm(prompt)
     # Simulating a delay of 5 seconds
     time.sleep(5)
     return f"Processed input: {answer}"
